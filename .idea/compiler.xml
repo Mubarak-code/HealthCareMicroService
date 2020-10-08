@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="APIProxyGateway" />
+        <module name="NurseService" />
+        <module name="DoctorService" />
+        <module name="ServiceDiscoveryServer" />
+        <module name="ReceptionistService" />
+        <module name="PatientService" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="APIProxyGateway" target="1.8" />
+      <module name="DoctorService" target="1.8" />
+      <module name="NurseService" target="1.8" />
+      <module name="PatientService" target="1.8" />
+      <module name="ReceptionistService" target="1.8" />
+      <module name="ServiceDiscoveryServer" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="APIProxyGateway" options="-parameters" />
+      <module name="DoctorService" options="-parameters" />
+      <module name="NurseService" options="-parameters" />
+      <module name="PatientService" options="-parameters" />
+      <module name="ReceptionistService" options="-parameters" />
+      <module name="ServiceDiscoveryServer" options="-parameters" />
+    </option>
+  </component>
+</project>
