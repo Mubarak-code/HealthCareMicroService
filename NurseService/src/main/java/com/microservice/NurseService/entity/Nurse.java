@@ -1,26 +1,16 @@
-package com.microservice.DoctorService.model;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+package com.microservice.NurseService.entity;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "nurse")
-public class NurseEntity {
+public class Nurse  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -52,10 +42,10 @@ public class NurseEntity {
     private String employmentType;
 
 
-    public NurseEntity() {
+    public Nurse() {
 
     }
-    public NurseEntity(@NotNull Long nurseNumber, @NotBlank String nurseName, @NotNull Long phoneNumber, @NotEmpty String employmentType) {
+    public Nurse(@NotNull Long nurseNumber, @NotBlank String nurseName,@NotNull Long phoneNumber, @NotEmpty String employmentType) {
         this.nurseNumber = nurseNumber;
         this.nurseName = nurseName;
         this.phoneNumber = phoneNumber;
@@ -65,7 +55,7 @@ public class NurseEntity {
 
 
 
-    public NurseEntity(@NotNull Long nurseNumber, @NotBlank String nurseName, @NotNull Long phoneNumber, String email , @NotEmpty String employmentType) {
+    public Nurse(@NotNull Long nurseNumber, @NotBlank String nurseName,@NotNull Long phoneNumber, String email ,@NotEmpty String employmentType) {
         this.nurseNumber = nurseNumber;
         this.nurseName = nurseName;
         this.phoneNumber = phoneNumber;

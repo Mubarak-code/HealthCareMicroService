@@ -1,23 +1,29 @@
-package com.microservice.PatientService.model;
+package com.microservice.DoctorService.entity;
 
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "patient")
-public class Patient  {
+public class PatientEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "patient_number", nullable = false)
-    @NotNull(message = "Patient number cannot be blank")
+    @NotNull(message = "Patient number caanot be blank")
     private Long patientNumber;
     @Column(name =  "patient_name", nullable = false)
-    @NotEmpty(message = "Patient name cannot be blank")
+    @NotEmpty(message = "Patient name caanot be blank")
     private String patientName;
     @Column(name = "address", nullable = false)
     @NotEmpty(message = "Patient address must be entered")
@@ -33,11 +39,11 @@ public class Patient  {
 
     // private Doctor doctor;
 
-    public Patient () {
+    public PatientEntity() {
 
     }
 
-    public Patient(@NotNull Long patientNumber, @NotEmpty String patientName,@NotNull Long phoneNumber,@NotEmpty String address) {
+    public PatientEntity(@NotNull Long patientNumber, @NotEmpty String patientName, @NotNull Long phoneNumber, @NotEmpty String address) {
         this.patientNumber = patientNumber;
         this.patientName = patientName;
         this.phoneNumber = phoneNumber;
@@ -111,3 +117,4 @@ public class Patient  {
 
 
 }
+

@@ -1,16 +1,22 @@
-package com.microservice.NurseService.model;
+package com.microservice.DoctorService.entity;
 
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotBlank;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
+
+
 @Entity
 @Table(name = "nurse")
-public class Nurse  {
+public class NurseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -42,10 +48,10 @@ public class Nurse  {
     private String employmentType;
 
 
-    public Nurse() {
+    public NurseEntity() {
 
     }
-    public Nurse(@NotNull Long nurseNumber, @NotBlank String nurseName,@NotNull Long phoneNumber, @NotEmpty String employmentType) {
+    public NurseEntity(@NotNull Long nurseNumber, @NotBlank String nurseName, @NotNull Long phoneNumber, @NotEmpty String employmentType) {
         this.nurseNumber = nurseNumber;
         this.nurseName = nurseName;
         this.phoneNumber = phoneNumber;
@@ -55,7 +61,7 @@ public class Nurse  {
 
 
 
-    public Nurse(@NotNull Long nurseNumber, @NotBlank String nurseName,@NotNull Long phoneNumber, String email ,@NotEmpty String employmentType) {
+    public NurseEntity(@NotNull Long nurseNumber, @NotBlank String nurseName, @NotNull Long phoneNumber, String email , @NotEmpty String employmentType) {
         this.nurseNumber = nurseNumber;
         this.nurseName = nurseName;
         this.phoneNumber = phoneNumber;

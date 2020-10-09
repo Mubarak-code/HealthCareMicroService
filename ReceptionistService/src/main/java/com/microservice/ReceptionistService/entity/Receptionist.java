@@ -1,4 +1,4 @@
-package com.microservice.ReceptionistService.model;
+package com.microservice.ReceptionistService.entity;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;

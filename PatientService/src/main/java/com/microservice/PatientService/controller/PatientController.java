@@ -1,7 +1,7 @@
 package com.microservice.PatientService.controller;
 
 
-import com.microservice.PatientService.model.Patient;
+import com.microservice.PatientService.entity.Patient;
 import com.microservice.PatientService.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

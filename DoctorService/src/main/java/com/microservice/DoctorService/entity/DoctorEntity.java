@@ -1,4 +1,4 @@
-package com.microservice.DoctorService.model;
+package com.microservice.DoctorService.entity;
 
 import java.util.List;
 
