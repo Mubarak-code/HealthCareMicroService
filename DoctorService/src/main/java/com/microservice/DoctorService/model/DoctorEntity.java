@@ -1,21 +1,14 @@
 package com.microservice.DoctorService.model;
 
 import java.util.List;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
@@ -27,7 +20,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "doctor")
-public class Doctor {
+public class DoctorEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -58,15 +51,15 @@ public class Doctor {
     private String employmentType;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "doctor_patient")
-    private List<Patient> patients;
+    private List<PatientEntity> patients;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "doctor_nurse")
-    private List<Nurse> nurses;
+    private List<NurseEntity> nurs;
 
-    public Doctor() {
+    public DoctorEntity() {
 
     }
-    public Doctor(@NotNull Long doctorNumber, @NotBlank String doctorName,@NotNull Long phoneNumber, @NotEmpty String employmentType) {
+    public DoctorEntity(@NotNull Long doctorNumber, @NotBlank String doctorName, @NotNull Long phoneNumber, @NotEmpty String employmentType) {
         this.doctorNumber = doctorNumber;
         this.doctorName = doctorName;
         this.phoneNumber = phoneNumber;
@@ -75,7 +68,7 @@ public class Doctor {
     }
 
 
-    public Doctor(@NotNull Long doctorNumber, @NotBlank String doctorName,@NotNull Long phoneNumber, String email ,@NotEmpty String employmentType) {
+    public DoctorEntity(@NotNull Long doctorNumber, @NotBlank String doctorName, @NotNull Long phoneNumber, String email , @NotEmpty String employmentType) {
         this.doctorNumber = doctorNumber;
         this.doctorName = doctorName;
         this.phoneNumber = phoneNumber;
@@ -92,44 +85,44 @@ public class Doctor {
         this.id = id;
     }
 
-    public List<Patient> getPatients() {
+    public List<PatientEntity> getPatients() {
         return patients;
     }
 
-    public void setPatients(List<Patient> patients) {
-        this.patients = patients;
+    public void setPatients(List<PatientEntity> patientEntities) {
+        this.patients = patientEntities;
     }
 
-    public List<Nurse> getNurses() {
-        return nurses;
+    public List<NurseEntity> getNurses() {
+        return nurs;
     }
 
-    public void setNurses(List<Nurse> nurses) {
-        this.nurses = nurses;
+    public void setNurses(List<NurseEntity> nurs) {
+        this.nurs = nurs;
     }
 
-    public void addPatient(Patient patient) {
-        patients.add(patient);
+    public void addPatient(PatientEntity patientEntity) {
+        patients.add(patientEntity);
     }
 
-    public void addNurse(Nurse nurse) {
-        nurses.add(nurse);
+    public void addNurse(NurseEntity nurseEntity) {
+        nurs.add(nurseEntity);
     }
 
-    public Patient getPatient(Long patientId) {
-        for (Patient patient : patients) {
-            if(patient.getId() == patientId)
-                return patient;
+    public PatientEntity getPatient(Long patientId) {
+        for (PatientEntity patientEntity : patients) {
+            if(patientEntity.getId() == patientId)
+                return patientEntity;
             else
                 continue;
         }
         return null;
     }
 
-    public Nurse getNurse(Long nurseId) {
-        for (Nurse nurse : nurses) {
-            if(nurse.getId() == nurseId)
-                return nurse;
+    public NurseEntity getNurse(Long nurseId) {
+        for (NurseEntity nurseEntity : nurs) {
+            if(nurseEntity.getId() == nurseId)
+                return nurseEntity;
             else
                 continue;
         }

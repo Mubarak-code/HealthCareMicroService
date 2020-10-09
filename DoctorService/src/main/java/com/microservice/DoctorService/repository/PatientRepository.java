@@ -1,15 +1,15 @@
 package com.microservice.DoctorService.repository;
 
 
-import com.microservice.DoctorService.model.Patient;
+import com.microservice.DoctorService.model.PatientEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PatientRepository extends JpaRepository<Patient, Long> {
+public interface PatientRepository extends JpaRepository<PatientEntity, Long> {
 
-    Patient findByPatientNumber (Long patientNumber);
-    Patient findByPatientName (String patientName);
+    PatientEntity findByPatientNumber (Long patientNumber);
+    PatientEntity findByPatientName (String patientName);
     void deleteByPatientNumber(Long patientNUmber);
 
 }
