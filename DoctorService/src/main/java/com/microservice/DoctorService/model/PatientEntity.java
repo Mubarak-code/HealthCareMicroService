@@ -18,7 +18,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "patient")
-public class Patient  {
+public class PatientEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -44,11 +44,11 @@ public class Patient  {
 
     // private Doctor doctor;
 
-    public Patient () {
+    public PatientEntity() {
 
     }
 
-    public Patient(@NotNull Long patientNumber, @NotEmpty String patientName,@NotNull Long phoneNumber,@NotEmpty String address) {
+    public PatientEntity(@NotNull Long patientNumber, @NotEmpty String patientName, @NotNull Long phoneNumber, @NotEmpty String address) {
         this.patientNumber = patientNumber;
         this.patientName = patientName;
         this.phoneNumber = phoneNumber;
